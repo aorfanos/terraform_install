@@ -1,6 +1,6 @@
 ---
 
-download_path: /home/user/terraform #path where the zip will be downloaded
-owner: terraformuser #terraform user
-group: terraformuser #terraform group
+download_path: /home/aorfanos/terraform #path where the zip will be downloaded
+owner: aorfanos #terraform user
+group: aorfanos #terraform group
 exec_path: /usr/bin #$PATH path
