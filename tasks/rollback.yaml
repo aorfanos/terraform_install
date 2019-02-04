@@ -1,0 +1,29 @@
+---
+
+- include_vars: vars.yaml
+
+- name: Remove installation directory
+  file:
+          name: "{{ download_path }}"
+          state: absent
+
+- name: Remove executable from $PATH
+  file:
+          name: "{{ exec_path }}/terraform"
+          state: absent
+
+- name: Uninstall prerequisite packages
+  apt:
+          name: "{{ item }}"
+          state: absent
+  with_items:
+          - unzip
+  when: ansible_os_family == 'Debian'
+
+- name: Uninstall prerequisite packages
+  yum:
+          name: "{{ item }}"
+          state: absent
+  with_items:
+          - unzip
+  when: ansible_os_family == 'RedHat'
