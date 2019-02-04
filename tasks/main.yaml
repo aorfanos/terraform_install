@@ -1,13 +1,13 @@
 ---
 
 - include_vars: vars.yaml
-- include: tasks/prereq.yaml 
+- include: tasks/prereq.yaml
 - include: tasks/rollback.yaml
   tags: ['never','rollback']
 
 - name: Create install directory (if not exists)
   file:
-          path: "{{ download_path }}" 
+          path: "{{ download_path }}"
           owner: "{{ owner }}"
           group: "{{ group }}"
           state: directory
@@ -15,7 +15,7 @@
 - name: Fetch terraform file for Linux x86_64
   get_url:
           url: https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip
-          dest: "{{ download_path }}" 
+          dest: "{{ download_path }}"
 
 - name: Extract zip file
   unarchive:
